@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h2>Trainer dashboard</h2><a class="btn btn-primary" href="{{url_for('courses.create')}}">New course</a>{% for c in courses %}<p>{{c.title}}</p>{% endfor %}{% endblock %}

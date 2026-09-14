@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h2>{{assessment.title}}</h2><form method=post>{% for q in assessment.questions %}<div class="card p-3 my-2"><b>{{loop.index}}. {{q.text}}</b><input class=form-control name="q{{loop.index0}}" required></div>{% endfor %}<button class="btn btn-info">Submit assessment</button></form>{% endblock %}

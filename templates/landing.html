@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero p-5 rounded-4">
+  <span class="badge bg-info">UNDERSTANDING &gt; COMPLETION</span>
+  <h1 class="display-3 fw-bold mt-3">Learning should measure understanding.</h1>
+  <p class="lead text-light">Capacity Connect turns pauses, rewinds, doubts and teach-back into actionable competency insights.</p>
+  <div class="d-flex flex-wrap gap-2 mt-4">
+    <a class="btn btn-info btn-lg" href="{{ url_for('auth.register') }}">Start learning</a>
+    <a class="btn a-outline-light btn-lg" href="{{ url_for('courses.list_courses') }}">Explore courses</a>
+  </div>
+</div>
+<section class="row g-4 mt-4">
+  <div class="col-md-4"><div class="card p-4 h-100"><h3>Detect confusion</h3><p class="mb-0">Behavior-based signals reveal where learners pause, rewind, and struggle.</p></div></div>
+  <div class="col-md-4"><div class="card p-4 h-100"><h3>Connect support</h3><p class="mb-0">Doubts, anonymous questions, peer rescue, and real-time chat make help immediate.</p></div></div>
+  <div class="col-md-4"><div class="card p-4 h-100"><h3>Measure readiness</h3><p class="mb-0">Assessments, teach-back, competency, and role readiness close the learning loop.</p></div></div>
+</section>
+<section class="home-section problems-section reveal-on-scroll" aria-labelledby="problems-title">
+  <div class="section-heading">
+    <span class="eyebrow">THE OLD LEARNING LOOP</span>
+    <h2 id="problems-title">Learning problems we've all faced</h2>
+    <p>When learning happens in isolation, completion data rarely tells the whole story.</p>
+  </div>
+  <div class="marquee marquee-problems" aria-label="Learning problems">
+    <div class="marquee-track">
+      <div class="marquee-set">
+        <article class="problem-card problem-card-wide"><span class="problem-icon" aria-hidden="true">01</span><div><h3>Learning in isolation</h3><p>It is difficult to stay motivated without a connected learning community.</p></div></article>
+        <article class="problem-card"><span class="problem-icon" aria-hidden="true">02</span><div><h3>No practical experience</h3><p>Concepts fade when there is no safe place to apply them.</p></div></article>
+        <article class="problem-card"><span class="problem-icon" aria-hidden="true">03</span><div><h3>No peer support</h3><p>Questions remain unanswered when the right person is hard to find.</p></div></article>
+        <article class="problem-card problem-card-wide"><span class="problem-icon" aria-hidden="true">04</span><div><h3>Difficult to retain concepts</h3><p>Watching a lesson is not the same as understanding or remembering it.</p></div></article>
+        <article class="problem-card"><span class="problem-icon" aria-hidden="true">05</span><div><h3>No proper guidance</h3><p>Learners need timely feedback before a small gap becomes a blocker.</p></div></article>
+        <article class="problem-card"><span class="problem-icon problem-icon-warning" aria-hidden="true">06</span><div><h3>Outdated curriculum</h3><p>Trainers need evidence of where content needs a clearer explanation.</p></div></article>
+      </div>
+      <div class="marquee-set" aria-hidden="true">
+        <article class="problem-card problem-card-wide"><span class="problem-icon">01</span><div><h3>Learning in isolation</h3><p>It is difficult to stay motivated without a connected learning community.</p></div></article>
+        <article class="problem-card"><span class="problem-icon">02</span><div><h3>No practical experience</h3><p>Concepts fade when there is no safe place to apply them.</p></div></article>
+        <article class="problem-card"><span class="problem-icon">03</span><div><h3>No peer support</h3><p>Questions remain unanswered when the right person is hard to find.</p></div></article>
+        <article class="problem-card problem-card-wide"><span class="problem-icon">04</span><div><h3>Difficult to retain concepts</h3><p>Watching a lesson is not the same as understanding or remembering it.</p></div></article>
+        <article class="problem-card"><span class="problem-icon">05</span><div><h3>No proper guidance</h3><p>Learners need timely feedback before a small gap becomes a blocker.</p></div></article>
+        <article class="problem-card"><span class="problem-icon problem-icon-warning">06</span><div><h3>Outdated curriculum</h3><p>Trainers need evidence of where content needs a clearer explanation.</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="home-section solution-section reveal-on-scroll" aria-labelledby="solution-title">
+  <div class="section-heading section-heading-centered">
+    <span class="eyebrow">THE CAPACITY CONNECT WAY</span>
+    <h2 id="solution-title">Turn learning signals into momentum.</h2>
+    <p>Three connected capabilities help every learner move from confusion to confidence.</p>
+  </div>
+  <div class="marquee marquee-solutions" aria-label="Capacity Connect capabilities">
+    <div class="marquee-track">
+      <div class="marquee-set">
+       <article class="solution-card solution-card-blue">
+      <div class="solution-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img"><path d="M14 27a9 9 0 0 1 0-6m20 0a9 9 0 0 1 0 6M9 31a16 16 0 0 1 0-14m30 0a16 16 0 0 1 0 14M24 18v12m-5-5 5 5 5-5" /></svg>
+      </div>
+      <h3>Learn Together</h3>
+      <p>Find peers, share context, and build the kind of connected practice that makes difficult topics stick.</p>
+      <span class="solution-line" aria-hidden="true"></span>
+       </article>
+    <article class="solution-card solution-card-purple solution-card-offset">
+      <div class="solution-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img"><path d="M12 18h24a6 6 0 0 1 6 6v2a6 6 0 0 1-6 6H23l-7 5v-5h-4a6 6 0 0 1-6-6v-2a6 6 0 0 1 6-6Zm8 8h.01m8 0h.01m8 0h.01" /></svg>
+      </div>
+      <h3>Turn Doubts Into Action</h3>
+      <p>Ask openly or anonymously, connect to the exact learning moment, and get help before confusion compounds.</p>
+      <span class="solution-line" aria-hidden="true"></span>
+       </article>
+    <article class="solution-card solution-card-indigo">
+      <div class="solution-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img"><path d="M11 36V22m9 14V14m9 22V19m9 17V9M8 39h34" /></svg>
+      </div>
+      <h3>Measure Real Understanding</h3>
+      <p>Combine behavior, assessment, teach-back, and competency to show what learners truly understand.</p>
+      <span class="solution-line" aria-hidden="true"></span>
+       </article>
+      </div>
+      <div class="marquee-set" aria-hidden="true">
+       <article class="solution-card solution-card-blue">
+        <div class="solution-icon"><svg viewBox="0 0 48 48"><path d="M14 27a9 9 0 0 1 0-6m20 0a9 9 0 0 1 0 6M9 31a16 16 0 0 1 0-14m30 0a16 16 0 0 1 0 14M24 18v12m-5-5 5 5 5-5" /></svg></div>
+        <h3>Learn Together</h3><p>Find peers, share context, and build the kind of connected practice that makes difficult topics stick.</p><span class="solution-line"></span>
+       </article>
+       <article class="solution-card solution-card-purple solution-card-offset">
+        <div class="solution-icon"><svg viewBox="0 0 48 48"><path d="M12 18h24a6 6 0 0 1 6 6v2a6 6 0 0 1-6 6H23l-7 5v-5h-4a6 6 0 0 1-6-6v-2a6 6 0 0 1 6-6Zm8 8h.01m8 0h.01m8 0h.01" /></svg></div>
+        <h3>Turn Doubts Into Action</h3><p>Ask openly or anonymously, connect to the exact learning moment, and get help before confusion compounds.</p><span class="solution-line"></span>
+       </article>
+       <article class="solution-card solution-card-indigo">
+        <div class="solution-icon"><svg viewBox="0 0 48 48"><path d="M11 36V22m9 14V14m9 22V19m9 17V9M8 39h34" /></svg></div>
+        <h3>Measure Real Understanding</h3><p>Combine behavior, assessment, teach-back, and competency to show what learners truly understand.</p><span class="solution-line"></span>
+       </article>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

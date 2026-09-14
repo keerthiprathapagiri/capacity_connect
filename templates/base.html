@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capacity Connect</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+<style>
+/* ================================
+CAPACITY CONNECT SECTIONS
+================================ */
+<br>
+.cc-sections {
+margin-top: 80px;
+padding-bottom: 70px;
+overflow: hidden;
+}
+<br>
+.cc-section {
+margin-bottom: 90px;
+}
+<br>
+.cc-section-title {
+text-align: center;
+color: #ffffff;
+font-size: 2.5rem;
+font-weight: 700;
+margin-bottom: 45px;
+}
+<br>
+.cc-section-title span {
+color: #9b6cff;
+}
+<br>
+/* Horizontal scrolling area */
+.cc-slider {
+width: 100%;
+overflow: hidden;
+position: relative;
+}
+<br>
+.cc-track {
+display: flex;
+width: max-content;
+gap: 22px;
+animation: cc-scroll 35s linear infinite;
+}
+<br>
+/* Pause when mouse is over the cards */
+.cc-slider:hover .cc-track {
+animation-play-state: paused;
+}
+<br>
+/* RIGHT TO LEFT */
+@keyframes cc-scroll {
+from {
+transform: translateX(0);
+}
+<br>
+to {
+transform: translateX(-50%);
+}
+}
+<br>
+.cc-card {
+width: 330px;
+min-height: 180px;
+padding: 28px;
+border-radius: 20px;
+<br>
+background:
+linear-gradient(
+145deg,
+rgba(35, 29, 59, 0.95),
+rgba(20, 18, 37, 0.97)
+);
+<br>
+border: 1px solid rgba(157, 122, 255, 0.18);
+<br>
+box-shadow:
+0 15px 40px rgba(0, 0, 0, 0.25),
+inset 0 1px 0 rgba(255,255,255,0.03);
+<br>
+flex-shrink: 0;
+transition: all 0.3s ease;
+}
+<br>
+.cc-card:hover {
+transform: translateY(-7px);
+border-color: rgba(139, 92, 246, 0.55);
+box-shadow:
+0 20px 45px rgba(75, 45, 140, 0.2),
+0 0 25px rgba(124, 58, 237, 0.08);
+}
+<br>
+.cc-icon {
+width: 52px;
+height: 52px;
+border-radius: 50%;
+<br>
+display: flex;
+align-items: center;
+justify-content: center;
+<br>
+margin-bottom: 20px;
+<br>
+background: linear-gradient(
+135deg,
+#4c1d95,
+#2563eb
+);
+<br>
+color: white;
+font-size: 22px;
+<br>
+box-shadow: 0 8px 25px rgba(76, 29, 149, 0.25);
+}
+<br>
+.cc-card h3 {
+color: #f8fafc;
+font-size: 1.15rem;
+font-weight: 600;
+margin-bottom: 10px;
+}
+<br>
+.cc-card p {
+color: #aeb4c7;
+font-size: 0.92rem;
+line-height: 1.6;
+margin: 0;
+}
+<br>
+/* Different visual treatment for solution cards */
+.cc-solution .cc-card {
+min-height: 200px;
+}
+<br>
+.cc-solution .cc-icon {
+background: linear-gradient(
+135deg,
+#2563eb,
+#7c3aed
+);
+}
+<br>
+/* Slight fade on carousel edges */
+.cc-slider::before,
+.cc-slider::after {
+content: "";
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100px;
+z-index: 2;
+pointer-events: none;
+}
+<br>
+.cc-slider::before {
+left: 0;
+background: linear-gradient(
+to right,
+#080812,
+transparent
+);
+}
+<br>
+.cc-slider::after {
+right: 0;
+background: linear-gradient(
+to left,
+#080812,
+transparent
+);
+}
+<br>
+/* Mobile */
+@media (max-width: 768px) {
+<br>
+.cc-section {
+margin-bottom: 60px;
+}
+<br>
+.cc-section-title {
+font-size: 1.9rem;
+margin-bottom: 30px;
+}
+<br>
+.cc-card {
+width: 280px;
+min-height: 170px;
+padding: 23px;
+}
+<br>
+.cc-track {
+gap: 16px;
+animation-duration: 28s;
+}
+<br>
+.cc-slider::before,
+.cc-slider::after {
+width: 45px;
+}
+}
+
+    /* Only the hero image carousel is added here. Everything else remains unchanged. */
+    .cc-hero-with-images { display:grid; grid-template-columns:minmax(0,1.18fr) minmax(350px,.82fr); align-items:center; gap:28px; overflow:hidden; }
+    .cc-hero-copy { min-width:0; transform:translateX(-18px); }
+    .cc-hero-images { position:relative; width:100%; max-width:455px; justify-self:end; }
+    .cc-hero-image-window { position:relative; width:100%; aspect-ratio:4/3; overflow:hidden; border-radius:24px; border:1px solid rgba(167,139,250,.35); background:#0b0a14; box-shadow:0 24px 60px rgba(0,0,0,.38),0 0 35px rgba(124,58,237,.12); }
+    .cc-hero-image-slide { position:absolute; inset:0; display:block; opacity:0; transform:translateX(55px); transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1); pointer-events:none; }
+    .cc-hero-image-slide.active { opacity:1; transform:translateX(0); pointer-events:auto; }
+    .cc-hero-image-slide.leaving { opacity:0; transform:translateX(-55px); }
+    .cc-hero-image-slide img { width:100%; height:100%; display:block; object-fit:cover; }
+    .cc-hero-image-dots { display:flex; justify-content:center; gap:7px; margin-top:14px; }
+    .cc-hero-image-dots span { width:7px; height:7px; border-radius:999px; background:rgba(203,213,225,.3); transition:all .3s ease; }
+    .cc-hero-image-dots span.active { width:23px; background:#60a5fa; }
+    @media (max-width:1000px) { .cc-hero-with-images { grid-template-columns:1fr; gap:35px; } .cc-hero-copy { transform:none; } .cc-hero-images { justify-self:center; max-width:560px; } }
+    @media (max-width:576px) { .cc-hero-images { max-width:100%; } }
+</style>
+</head>
+<body>
+<!-- Futuristic star background -->
+<canvas id="stars" aria-hidden="true"></canvas>
+<!-- ================================
+NAVBAR
+================================ -->
+<nav class="navbar navbar-expand-lg navbar-dark glass px-4 py-2">
+<br>
+<div class="container-fluid">
+<br>
+<a class="navbar-brand fw-bold"
+href="http://127.0.0.1:5001/">
+CAPACITY CONNECT
+</a>
+<br>
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#nav"
+aria-controls="nav"
+aria-label="Toggle navigation">
+<br>
+<span class="navbar-toggler-icon"></span>
+<br>
+</button>
+<br>
+<div id="nav" class="collapse navbar-collapse">
+<br>
+<div class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+<br>
+<br>
+<a class="nav-link"
+href="http://127.0.0.1:5001/courses/">
+Explore courses
+</a>
+<br>
+<a class="nav-link"
+href="http://127.0.0.1:5001/auth/login">
+Sign in
+</a>
+<br>
+<a class="btn btn-info btn-sm"
+href="http://127.0.0.1:5001/auth/register">
+Join platform
+</a>
+<br>
+</div>
+</div>
+</div>
+</nav>
+<!-- ================================
+MAIN CONTENT
+================================ -->
+<main class="container py-3">
+<div class="hero cc-hero-with-images p-5 rounded-4">
+<div class="cc-hero-copy">
+<span class="badge bg-info">UNDERSTANDING &gt; COMPLETION</span>
+<h1 class="display-3 fw-bold mt-3">Learning should measure understanding.</h1>
+<p class="lead text-light">Capacity Connect turns pauses, rewinds, doubts and teach-back into actionable competency insights.</p>
+<div class="d-flex flex-wrap gap-2 mt-4">
+<a class="btn btn-info btn-lg" href="http://127.0.0.1:5001/auth/register">Start learning</a>
+<a class="btn btn-outline-light btn-lg" href="http://127.0.0.1:5001/courses/">Explore courses</a>
+</div>
+</div>
+
+<div class="cc-hero-images" aria-label="Capacity Connect learning visuals">
+<div class="cc-hero-image-window">
+<a class="cc-hero-image-slide active" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdwST4X0hnFgC3jpKdcbRqJCyqwjVLTLe97OgXotWog&s=10" target="_blank" rel="noopener noreferrer"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdwST4X0hnFgC3jpKdcbRqJCyqwjVLTLe97OgXotWog&s=10" alt="Learning visual 1"></a>
+<a class="cc-hero-image-slide" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlYALbBvBahoqcS8eW4CPXK6NXgwY8IS0b8gwoM8TzfQ&s=10" target="_blank" rel="noopener noreferrer"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlYALbBvBahoqcS8eW4CPXK6NXgwY8IS0b8gwoM8TzfQ&s=10" alt="Learning visual 2"></a>
+<a class="cc-hero-image-slide" href="https://s39613.pcdn.co/wp-content/uploads/2025/05/iStock-1342228491-scaled.jpg" target="_blank" rel="noopener noreferrer"><img src="https://s39613.pcdn.co/wp-content/uploads/2025/05/iStock-1342228491-scaled.jpg" alt="Learning visual 3"></a>
+<a class="cc-hero-image-slide" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaaqb_DGnhEJCg-PF0LqI4GzNwV0qdhKunH5LRNDXRkw&s=10" target="_blank" rel="noopener noreferrer"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaaqb_DGnhEJCg-PF0LqI4GzNwV0qdhKunH5LRNDXRkw&s=10" alt="Learning visual 4"></a>
+</div>
+<div class="cc-hero-image-dots" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
+</div>
+</div>
+<section class="row g-4 mt-4">
+<div class="col-md-4"><div class="card p-4 h-100"><h3>Detect confusion</h3><p class="mb-0">Behavior-based signals reveal where learners pause, rewind, and struggle.</p></div></div>
+<div class="col-md-4"><div class="card p-4 h-100"><h3>Connect support</h3><p class="mb-0">Doubts, anonymous questions, peer rescue, and real-time chat make help immediate.</p></div></div>
+<div class="col-md-4"><div class="card p-4 h-100"><h3>Measure readiness</h3><p class="mb-0">Assessments, teach-back, competency, and role readiness close the learning loop.</p></div></div>
+</section>
+<section class="home-section problems-section reveal-on-scroll" aria-labelledby="problems-title">
+<div class="section-heading">
+<span class="eyebrow">THE OLD LEARNING LOOP</span>
+<h2 id="problems-title">Learning problems we've all faced</h2>
+<p>When learning happens in isolation, completion data rarely tells the whole story.</p>
+</div>
+<div class="problem-grid">
+<article class="problem-card problem-card-wide">
+<span class="problem-icon" aria-hidden="true">01</span>
+<div><h3>Learning in isolation</h3><p>It is difficult to stay motivated without a connected learning community.</p></div>
+</article>
+<article class="problem-card">
+<span class="problem-icon" aria-hidden="true">02</span>
+<div><h3>No practical experience</h3><p>Concepts fade when there is no safe place to apply them.</p></div>
+</article>
+<article class="problem-card">
+<span class="problem-icon" aria-hidden="true">03</span>
+<div><h3>No peer support</h3><p>Questions remain unanswered when the right person is hard to find.</p></div>
+</article>
+<article class="problem-card problem-card-wide">
+<span class="problem-icon" aria-hidden="true">04</span>
+<div><h3>Difficult to retain concepts</h3><p>Watching a lesson is not the same as understanding or remembering it.</p></div>
+</article>
+<article class="problem-card">
+<span class="problem-icon" aria-hidden="true">05</span>
+<div><h3>No proper guidance</h3><p>Learners need timely feedback before a small gap becomes a blocker.</p></div>
+</article>
+<article class="problem-card">
+<span class="problem-icon problem-icon-warning" aria-hidden="true">06</span>
+<div><h3>Outdated curriculum</h3><p>Trainers need evidence of where content needs a clearer explanation.</p></div>
+</article>
+</div>
+</section>
+<section class="home-section solution-section reveal-on-scroll" aria-labelledby="solution-title">
+<div class="section-heading section-heading-centered">
+<span class="eyebrow">THE CAPACITY CONNECT WAY</span>
+<h2 id="solution-title">Turn learning signals into momentum.</h2>
+<p>Three connected capabilities help every learner move from confusion to confidence.</p>
+</div>
+<div class="solution-grid">
+<article class="solution-card solution-card-blue">
+<div class="solution-icon" aria-hidden="true">
+<svg viewBox="0 0 48 48" role="img"><path d="M14 27a9 9 0 0 1 0-6m20 0a9 9 0 0 1 0 6M9 31a16 16 0 0 1 0-14m30 0a16 16 0 0 1 0 14M24 18v12m-5-5 5 5 5-5" /></svg>
+</div>
+<h3>Learn Together</h3>
+<p>Find peers, share context, and build the kind of connected practice that makes difficult topics stick.</p>
+<span class="solution-line" aria-hidden="true"></span>
+</article>
+<article class="solution-card solution-card-purple solution-card-offset">
+<div class="solution-icon" aria-hidden="true">
+<svg viewBox="0 0 48 48" role="img"><path d="M12 18h24a6 6 0 0 1 6 6v2a6 6 0 0 1-6 6H23l-7 5v-5h-4a6 6 0 0 1-6-6v-2a6 6 0 0 1 6-6Zm8 8h.01m8 0h.01m8 0h.01" /></svg>
+</div>
+<h3>Turn Doubts Into Action</h3>
+<p>Ask openly or anonymously, connect to the exact learning moment, and get help before confusion compounds.</p>
+<span class="solution-line" aria-hidden="true"></span>
+</article>
+<article class="solution-card solution-card-indigo">
+<div class="solution-icon" aria-hidden="true">
+<svg viewBox="0 0 48 48" role="img"><path d="M11 36V22m9 14V14m9 22V19m9 17V9M8 39h34" /></svg>
+</div>
+<h3>Measure Real Understanding</h3>
+<p>Combine behavior, assessment, teach-back, and competency to show what learners truly understand.</p>
+<span class="solution-line" aria-hidden="true"></span>
+</article>
+</div>
+</section>
+<br>
+<br>
+<br>
+<!-- ================================
+CAPACITY CONNECT INFORMATION
+================================ -->
+<br>
+<section class="cc-sections">
+<br>
+<br>
+<!-- =================================
+SECTION 1 — LEARNING PROBLEMS
+================================= -->
+<br>
+<section class="cc-section">
+<br>
+<h2 class="cc-section-title">
+Learning challenges
+<span>we solve</span>
+</h2>
+<br>
+<div class="cc-slider">
+<br>
+<div class="cc-track">
+<br>
+<br>
+<!-- SET 1 -->
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-question-circle"></i>
+</div>
+<br>
+<h3>Learning Without Understanding</h3>
+<br>
+<p>
+Completing a lecture does not always mean the learner
+actually understood the concept.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-graph-down"></i>
+</div>
+<br>
+<h3>Confusion Goes Unnoticed</h3>
+<br>
+<p>
+Repeated pauses, rewinds and replays can reveal
+confusion, but traditional platforms often miss these signals.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-chat-square-dots"></i>
+</div>
+<br>
+<h3>Unanswered Doubts</h3>
+<br>
+<p>
+Learners may hesitate to ask questions or struggle
+to find someone who can help them.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-people"></i>
+</div>
+<br>
+<h3>Lack of Peer Support</h3>
+<br>
+<p>
+Learners who have already mastered a topic are rarely
+connected with those who need help.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-person-lines-fill"></i>
+</div>
+<br>
+<h3>One-Size-Fits-All Learning</h3>
+<br>
+<p>
+Everyone follows the same learning path even when
+their actual competency levels are different.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-check2-circle"></i>
+</div>
+<br>
+<h3>Completion ≠ Competency</h3>
+<br>
+<p>
+Finishing a course does not prove that a learner
+can actually apply the skill.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-file-earmark-text"></i>
+</div>
+<br>
+<h3>Content Problems Go Unnoticed</h3>
+<br>
+<p>
+Trainers often do not know which exact part of
+a lecture repeatedly causes difficulty.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-bullseye"></i>
+</div>
+<br>
+<h3>Skills Don't Map to Roles</h3>
+<br>
+<p>
+Learners know what they studied, but not always
+whether they are ready for a technical role.
+</p>
+<br>
+</div>
+<br>
+<br>
+<!-- DUPLICATE SET FOR INFINITE LOOP -->
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-question-circle"></i>
+</div>
+<br>
+<h3>Learning Without Understanding</h3>
+<br>
+<p>
+Completing a lecture does not always mean the learner
+actually understood the concept.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-graph-down"></i>
+</div>
+<br>
+<h3>Confusion Goes Unnoticed</h3>
+<br>
+<p>
+Repeated pauses, rewinds and replays can reveal
+confusion, but traditional platforms often miss these signals.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-chat-square-dots"></i>
+</div>
+<br>
+<h3>Unanswered Doubts</h3>
+<br>
+<p>
+Learners may hesitate to ask questions or struggle
+to find someone who can help them.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-people"></i>
+</div>
+<br>
+<h3>Lack of Peer Support</h3>
+<br>
+<p>
+Learners who have already mastered a topic are rarely
+connected with those who need help.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-person-lines-fill"></i>
+</div>
+<br>
+<h3>One-Size-Fits-All Learning</h3>
+<br>
+<p>
+Everyone follows the same learning path even when
+their actual competency levels are different.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-check2-circle"></i>
+</div>
+<br>
+<h3>Completion ≠ Competency</h3>
+<br>
+<p>
+Finishing a course does not prove that a learner
+can actually apply the skill.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-file-earmark-text"></i>
+</div>
+<br>
+<h3>Content Problems Go Unnoticed</h3>
+<br>
+<p>
+Trainers often do not know which exact part of
+a lecture repeatedly causes difficulty.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-bullseye"></i>
+</div>
+<br>
+<h3>Skills Don't Map to Roles</h3>
+<br>
+<p>
+Learners know what they studied, but not always
+whether they are ready for a technical role.
+</p>
+<br>
+</div>
+<br>
+</div>
+</div>
+<br>
+</section>
+<br>
+<br>
+<!-- =================================
+SECTION 2 — CAPACITY CONNECT
+================================= -->
+<br>
+<section class="cc-section cc-solution">
+<br>
+<h2 class="cc-section-title">
+How Capacity Connect
+<span>makes learning smarter</span>
+</h2>
+<br>
+<div class="cc-slider">
+<br>
+<div class="cc-track">
+<br>
+<br>
+<!-- SET 1 -->
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-activity"></i>
+</div>
+<br>
+<h3>Confusion Heatmap</h3>
+<br>
+<p>
+Detect pauses, rewinds, replays and doubts to
+identify exactly where learners struggle.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-incognito"></i>
+</div>
+<br>
+<h3>Anonymous Doubts</h3>
+<br>
+<p>
+Learners can ask questions anonymously while the
+platform securely maintains the internal user record.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-person-check"></i>
+</div>
+<br>
+<h3>Peer Rescue</h3>
+<br>
+<p>
+Find peers who have demonstrated strong competency
+in the exact topic where help is needed.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-search"></i>
+</div>
+<br>
+<h3>Lecture Q&A</h3>
+<br>
+<p>
+Search lecture content and jump directly to the
+relevant timestamp instead of searching through the entire video.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-chat-dots"></i>
+</div>
+<br>
+<h3>Real-Time Chat</h3>
+<br>
+<p>
+Continue a doubt discussion through real-time
+learner-to-learner or learner-to-trainer communication.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-bar-chart-line"></i>
+</div>
+<br>
+<h3>Competency Tracking</h3>
+<br>
+<p>
+Combine assessments, completion, teach-back and
+participation to measure actual understanding.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-briefcase"></i>
+</div>
+<br>
+<h3>Role Readiness</h3>
+<br>
+<p>
+See how prepared a learner is for technical roles
+based on required skills and current competency.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-arrow-repeat"></i>
+</div>
+<br>
+<h3>Curriculum Feedback</h3>
+<br>
+<p>
+Repeated confusion and doubts reveal which parts
+of a course may need clarification or improvement.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-diagram-3"></i>
+</div>
+<br>
+<h3>Skill Match</h3>
+<br>
+<p>
+Search for a skill and discover learners who can
+share knowledge based on their competency.
+</p>
+<br>
+</div>
+<br>
+<br>
+<!-- DUPLICATE SET -->
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-activity"></i>
+</div>
+<br>
+<h3>Confusion Heatmap</h3>
+<br>
+<p>
+Detect pauses, rewinds, replays and doubts to
+identify exactly where learners struggle.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-incognito"></i>
+</div>
+<br>
+<h3>Anonymous Doubts</h3>
+<br>
+<p>
+Learners can ask questions anonymously while the
+platform securely maintains the internal user record.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-person-check"></i>
+</div>
+<br>
+<h3>Peer Rescue</h3>
+<br>
+<p>
+Find peers who have demonstrated strong competency
+in the exact topic where help is needed.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-search"></i>
+</div>
+<br>
+<h3>Lecture Q&A</h3>
+<br>
+<p>
+Search lecture content and jump directly to the
+relevant timestamp instead of searching through the entire video.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-chat-dots"></i>
+</div>
+<br>
+<h3>Real-Time Chat</h3>
+<br>
+<p>
+Continue a doubt discussion through real-time
+learner-to-learner or learner-to-trainer communication.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-bar-chart-line"></i>
+</div>
+<br>
+<h3>Competency Tracking</h3>
+<br>
+<p>
+Combine assessments, completion, teach-back and
+participation to measure actual understanding.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-briefcase"></i>
+</div>
+<br>
+<h3>Role Readiness</h3>
+<br>
+<p>
+See how prepared a learner is for technical roles
+based on required skills and current competency.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-arrow-repeat"></i>
+</div>
+<br>
+<h3>Curriculum Feedback</h3>
+<br>
+<p>
+Repeated confusion and doubts reveal which parts
+of a course may need clarification or improvement.
+</p>
+<br>
+</div>
+<br>
+<br>
+<div class="cc-card">
+<br>
+<div class="cc-icon">
+<i class="bi bi-diagram-3"></i>
+</div>
+<br>
+<h3>Skill Match</h3>
+<br>
+<p>
+Search for a skill and discover learners who can
+share knowledge based on their competency.
+</p>
+<br>
+</div>
+<br>
+</div>
+</div>
+<br>
+</section>
+<br>
+</section>
+<br>
+</main>
+<footer class="site-footer" aria-labelledby="footer-title">
+<div class="container">
+<div class="site-footer-grid">
+<div>
+<h2 id="footer-title">Capacity Connect</h2>
+<p>Turn learning signals into understanding, confidence, and readiness.</p>
+</div>
+<nav aria-label="Footer navigation">
+<h3>Explore</h3>
+<a href="{{ url_for('main.index') }}">Home</a>
+<a href="{{ url_for('courses.list_courses') }}">Courses</a>
+<a href="{{ url_for('auth.login') }}">Sign in</a>
+</nav>
+<div>
+<h3>Learning support</h3>
+<p>Questions, peer support, and competency insights in one connected platform.</p>
+</div>
+</div>
+<div class="site-footer-bottom">
+<span>&copy; {{ now().year if now is defined else 2026 }} BLUE</span>
+<span>Built for better learning outcomes.</span>
+</div>
+</div>
+</footer>
+<!-- ================================
+SCRIPTS
+================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="http://127.0.0.1:5001/static/js/main.js"></script>
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.cc-hero-image-slide')];
+  const dots=[...document.querySelectorAll('.cc-hero-image-dots span')];
+  if(!slides.length)return;
+  let current=0;
+  setInterval(()=>{
+    const previous=current;
+    current=(current+1)%slides.length;
+    slides[previous].classList.remove('active');
+    slides[previous].classList.add('leaving');
+    slides[current].classList.remove('leaving');
+    slides[current].classList.add('active');
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===current));
+    setTimeout(()=>slides[previous].classList.remove('leaving'),850);
+  },3000);
+})();
+</script>
+</body>
+</html>
