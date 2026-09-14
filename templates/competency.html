@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h2>Competency</h2>{% for c in competencies %}<p>{{c.skill}}: {{c.score}}%</p>{% else %}<p>Signals will appear here.</p>{% endfor %}{% endblock %}

@@ -1,0 +1,1 @@
+[{"start": 0, "end": 18, "text": "Functions accept inputs and return outputs."}, {"start": 18, "end": 42, "text": "Small pure functions are easier to test and reason about."}, {"start": 42, "end": 70, "text": "Use meaningful names and explicit contracts."}]

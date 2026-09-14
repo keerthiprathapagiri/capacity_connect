@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h1>Welcome, {{current_user.name}}</h1><h3>Courses</h3>{% for c in courses %}<div class="card mb-2"><div class=card-body><a href="{{url_for('courses.detail',course_id=c.id)}}"><h5>{{c.title}}</h5></a><p>{{c.description}}</p></div></div>{% else %}<p>No courses yet.</p>{% endfor %}{% endblock %}

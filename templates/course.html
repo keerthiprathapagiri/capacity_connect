@@ -1,0 +1,2 @@
+﻿{% extends "base.html" %}{% block content %}<h2>{{course.title}}</h2><p>{{course.description}}</p>{% for l in course.lectures %}<a class="d-block card p-3 mb-2" href="{{url_for('courses.lecture',lecture_id=l.id)}}">{{l.title}} <small>{{l.topic}} - {{l.difficulty}}</small></a>{% else %}<p>No lectures yet.</p>{% endfor %}{% endblock %}
+
